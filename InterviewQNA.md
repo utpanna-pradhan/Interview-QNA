@@ -122,3 +122,60 @@ Closure is when an inner function remembers and accesses variables from its oute
 Middleware is a function that has access to req, res, next and runs before the request reaches the route handler.
 
 # Q10.
+# Q28. Largest Number
+function maxnum(arr){
+    let max = arr[0];
+    for(let i=0;i<=arr.length;i++){
+        if(arr[i]>max){
+            max = arr[i]
+        }
+    }
+    return max;
+}
+console.log(maxnum([3,7,2,9,5]));
+
+# Q29. Remove duplicate
+```javascript
+function removedub(arr){
+const result = [];
+for(let i=0;i<=arr.length;i++){
+    if(!result.includes(arr[i]))
+    {
+        result.push(arr[i])
+    }
+}
+return result;
+}
+console.log(removedub([1,2,2,3,4,4,5]))
+```
+
+# 30. Add item to list in react
+```javascript
+import {useState} from "react";
+function ItemList(){
+    const [ txt,setTxt ] = useState(" ");
+    const [items,setItems] = useState([]);
+    const handleAdd = () =>{
+        if(items.trim=="")return;
+        setItems([...items,txt])
+        setTxt("")
+    }
+    return(<>
+    <input type ="text" onChange={(e)=>setTxt(e.target.value)}/>
+    <button onClick = {handleAdd}> Add </button>
+    <ul>
+    {items.map((index,item)=>(
+        <li key = {index}>{item}</li>
+    ))}
+    </ul> 
+        </>
+    )
+}
+```
+
+# 31. What happen after rerender?
+- State update.
+- component function runs again.
+- new virtual dom created.
+- diffing algorithmn compares old vs new dom.
+- real dom updates minimal changes
