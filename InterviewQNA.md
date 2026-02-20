@@ -179,3 +179,46 @@ function ItemList(){
 - new virtual dom created.
 - diffing algorithmn compares old vs new dom.
 - real dom updates minimal changes
+
+# 32. post method /add
+```javascript
+const express = require("express");
+const app = express();
+app.use(express.json());
+app.post("/add",(req,res)=>{
+    const {a,b} = req.body;
+    res.json ({result : a+b})
+});
+const PORT = process.env.PORT || 8000;
+app.listen(PORT,()=>{
+    console.log(`server is running on PORT ${PORT}`)
+})
+```
+
+# 33.Middleware
+It is a function that runs before route handle
+- req = incoming request
+- res = response
+- next = passes control to next middle ware
+
+# 34.sync vs async
+sync = Blocks execution
+async = non blocking ,handle via callback,promises,event loop
+
+# 35. Double everynumber
+```javascript
+const numbers = [1,2,3,4];
+const dblnum = numbers.map((num)=>{
+    return num * 2
+})
+console.log(dblnum)
+```
+
+# 36.Square of each number
+```javascript
+const numbers = [1,2,3];
+const sqrnum = numbers.map((num)=>{
+    return num*num;
+})
+console.log(sqrnum)
+```
